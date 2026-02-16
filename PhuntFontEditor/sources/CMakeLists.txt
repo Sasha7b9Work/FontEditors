@@ -19,4 +19,10 @@ project (FontEditor)
 
 set (TARGET_NAME FontEditor)
 
+if(${CMAKE_BUILD_TYPE} STREQUAL Debug)
+    add_definitions(-DDEBUG)
+endif()
+
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")         # Установка флага линковки /MT
+
 add_subdirectory(Editor)

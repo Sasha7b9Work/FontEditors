@@ -47,19 +47,7 @@ source_group(Font              FILES ${FONT})
 
 add_executable(Editor ${SRC} ${_FILES} ${DIALOGS} ${DIALOGS_CONTROLS} ${FONT})
 
-#target_link_libraries(Editor ../../../generated/ThirdParty/lib/vc_x64_lib/wxbase33ud)
-#target_link_libraries(Editor ../../../generated/ThirdParty/lib/vc_x64_lib/wxmsw33ud_core)
-#target_link_libraries(Editor ../../../generated/ThirdParty/lib/vc_x64_lib/wxbase33ud_xml)
-
-
 target_link_libraries(${PROJECT_NAME}
-#    wxbase33u wxmsw33u_core wxbase33u_xml
-    wxbase33u wxmsw33u_core wxbase33u_net wxzlib wxpng
+    wxbase33u wxmsw33u_core wxbase33u_net wxzlib wxpng wxbase33u_xml wxexpat
     Ws2_32 Comctl32 Rpcrt4
 )
-
-#target_link_libraries(Editor WinMM.lib)
-#target_link_libraries(Editor version.lib)
-#target_link_libraries(Editor Imm32.Lib)
-#target_link_libraries(Editor Setupapi.lib)
-

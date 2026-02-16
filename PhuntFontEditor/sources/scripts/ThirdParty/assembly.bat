@@ -15,7 +15,7 @@ cd ../..
 rmdir generated\ThirdParty /s /q
 cd scripts/ThirdParty
 @echo on
-cmake ../../VS/ThirdParty/wxWidgets/CMakeLists.txt -B../../generated/ThirdParty  -G "Visual Studio 18 2026" -A x64 -DwxBUILD_STRIPPED_RELEASE=ON -DwxBUILD_SHARED=OFF -DwxBUILD_USE_STATIC_RUNTIME=ON
+cmake ../../VS/ThirdParty/wxWidgets/CMakeLists.txt -B../../generated/ThirdParty  -G "Visual Studio 18 2026" -A x64 -DwxBUILD_STRIPPED_RELEASE=ON -DwxBUILD_SHARED=OFF -DwxBUILD_USE_STATIC_RUNTIME=ON -DwxBUILD_SAMPLES=OFF
 @echo off
 
 :BUILDING
