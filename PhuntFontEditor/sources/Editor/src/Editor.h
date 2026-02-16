@@ -1,5 +1,6 @@
 #pragma once
 #pragma warning(push, 0)
+#pragma warning(disable:4865 5039)
 #include "wx/wx.h"
 #pragma warning(pop)
 

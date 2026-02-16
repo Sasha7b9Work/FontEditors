@@ -4,11 +4,6 @@
 #include "Dialogs/ImportFromXMLFileDialog.h"
 #include "Font/FontImporter.h"
 
-#pragma warning(push, 0)
-#include <wx/wx.h>
-#include <wx/xml/xml.h>
-#pragma warning(pop)
-
 
 bool ImportFromXMLFileDialog::Execute()
 {

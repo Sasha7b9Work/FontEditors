@@ -3,9 +3,9 @@ cmake_minimum_required(VERSION 3.15)
 project (Editor)
 
 include_directories(src
-                    ../ThirdParty/wxWidgets/include
-                    ../ThirdParty/wxWidgets/generated/lib/vc_dll/mswud)
-                    
+                    ../VS/ThirdParty/wxWidgets/include
+                    ../generated/ThirdParty/lib/vc_dll/mswud)
+
 add_definitions(-DWXUSINGDLL)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -MP -Wall")
@@ -43,9 +43,9 @@ source_group(Font              FILES ${FONT})
 
 add_executable(Editor ${SRC} ${_FILES} ${DIALOGS} ${DIALOGS_CONTROLS} ${FONT})
 
-target_link_libraries(Editor ../../../ThirdParty/wxWidgets/generated/lib/vc_dll/wxbase31ud)
-target_link_libraries(Editor ../../../ThirdParty/wxWidgets/generated/lib/vc_dll/wxmsw31ud_core)
-target_link_libraries(Editor ../../../ThirdParty/wxWidgets/generated/lib/vc_dll/wxbase31ud_xml)
+target_link_libraries(Editor ../../../generated/ThirdParty/lib/vc_dll/wxbase33ud)
+target_link_libraries(Editor ../../../generated/ThirdParty/lib/vc_dll/wxmsw33ud_core)
+target_link_libraries(Editor ../../../generated/ThirdParty/lib/vc_dll/wxbase33ud_xml)
 
 target_link_libraries(Editor WinMM.lib)
 target_link_libraries(Editor version.lib)

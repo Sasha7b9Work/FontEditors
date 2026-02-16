@@ -15,7 +15,7 @@ struct StructConversionENUM
     const char *text;
 
     static const char *FindText(const StructConversionENUM *first, int e);
-    static const int FindENUM(const StructConversionENUM *first, const char *text);
+    static int FindENUM(const StructConversionENUM *first, const char *text);
 };
 
 
@@ -285,7 +285,7 @@ const char *StructConversionENUM::FindText(const StructConversionENUM *first, in
     return "invalid";
 }
 
-const int StructConversionENUM::FindENUM(const StructConversionENUM *first, const char *text) //-V2506
+int StructConversionENUM::FindENUM(const StructConversionENUM *first, const char *text) //-V2506
 {
     const StructConversionENUM *str = first;
 

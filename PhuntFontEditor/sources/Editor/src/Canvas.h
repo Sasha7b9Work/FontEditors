@@ -1,9 +1,5 @@
 #pragma once
 #include "Font/BitmapFont.h"
-#pragma warning(push, 0)
-#include <wx/wx.h>
-#include <wx/textfile.h>
-#pragma warning(pop)
 
 
 struct BitmapFont;

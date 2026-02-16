@@ -1,14 +1,6 @@
 #include "Editor.h"
 #include "Dialogs/ImportFromXMLFileDialog.h"
 
-#pragma warning(push, 0)
-#include <wx/wx.h>
-#include <wx/display.h>
-#include <wx/fontdlg.h>
-#include <wx/mstream.h>
-#include <wx/textfile.h>
-#include <wx/xml/xml.h>
-#pragma warning(pop)
 
 #undef main
 

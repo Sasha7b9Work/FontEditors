@@ -1,9 +1,5 @@
 #pragma once
 #include "Dialogs/ImportSystemFontDialog.h"
-
-#pragma warning(push, 0)
-#include <wx/wx.h>
-#pragma warning(pop)
 #include <vector>
 
 
