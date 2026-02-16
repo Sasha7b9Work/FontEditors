@@ -15,13 +15,13 @@ cd ../..
 rmdir generated\ThirdParty /s /q
 cd scripts/ThirdParty
 @echo on
-cmake ../../VS/ThirdParty/wxWidgets/CMakeLists.txt -B../../generated/ThirdParty  -G "Visual Studio 18 2026" -A Win32 -DwxBUILD_SHARED=ON -DwxBUILD_USE_STATIC_RUNTIME=OFF -DwxBUILD_SAMPLES=OFF
+cmake ../../VS/ThirdParty/wxWidgets/CMakeLists.txt -B../../generated/ThirdParty  -G "Visual Studio 18 2026" -A x64 -DwxBUILD_STRIPPED_RELEASE=ON -DwxBUILD_SHARED=OFF -DwxBUILD_USE_STATIC_RUNTIME=ON
 @echo off
 
 :BUILDING
 if %isBuild%==0 goto EXIT
 @echo on
-MSBuild.exe ../../generated/ThirdParty/wxWidgets.slnx -clp:ErrorsOnly;WarningsOnly -nologo /m
+MSBuild.exe ../../generated/ThirdParty/wxWidgets.slnx /p:Configuration=Release -t:rebuild -clp:ErrorsOnly;WarningsOnly -nologo /m
 @echo off
 goto EXIT
 

@@ -4,9 +4,13 @@ project (Editor)
 
 include_directories(src
                     ../VS/ThirdParty/wxWidgets/include
-                    ../generated/ThirdParty/lib/vc_dll/mswud)
+                    ../generated/ThirdParty/lib/vc_x64_lib/mswu)
 
-add_definitions(-DWXUSINGDLL)
+link_directories(
+    ../generated/ThirdParty/lib/vc_x64_lib/
+)
+
+#add_definitions(-DWXUSINGDLL)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -MP -Wall")
 
@@ -43,12 +47,19 @@ source_group(Font              FILES ${FONT})
 
 add_executable(Editor ${SRC} ${_FILES} ${DIALOGS} ${DIALOGS_CONTROLS} ${FONT})
 
-target_link_libraries(Editor ../../../generated/ThirdParty/lib/vc_dll/wxbase33ud)
-target_link_libraries(Editor ../../../generated/ThirdParty/lib/vc_dll/wxmsw33ud_core)
-target_link_libraries(Editor ../../../generated/ThirdParty/lib/vc_dll/wxbase33ud_xml)
+#target_link_libraries(Editor ../../../generated/ThirdParty/lib/vc_x64_lib/wxbase33ud)
+#target_link_libraries(Editor ../../../generated/ThirdParty/lib/vc_x64_lib/wxmsw33ud_core)
+#target_link_libraries(Editor ../../../generated/ThirdParty/lib/vc_x64_lib/wxbase33ud_xml)
 
-target_link_libraries(Editor WinMM.lib)
-target_link_libraries(Editor version.lib)
-target_link_libraries(Editor Imm32.Lib)
-target_link_libraries(Editor Setupapi.lib)
+
+target_link_libraries(${PROJECT_NAME}
+#    wxbase33u wxmsw33u_core wxbase33u_xml
+    wxbase33u wxmsw33u_core wxbase33u_net wxzlib wxpng
+    Ws2_32 Comctl32 Rpcrt4
+)
+
+#target_link_libraries(Editor WinMM.lib)
+#target_link_libraries(Editor version.lib)
+#target_link_libraries(Editor Imm32.Lib)
+#target_link_libraries(Editor Setupapi.lib)
 

@@ -15,7 +15,7 @@ cd ../..
 rmdir generated\GUI /s /q
 cd scripts/vs_win
 @echo on
-cmake ../../CMakeLists.txt -B../../generated/GUI -G "Visual Studio 18 2026" -A Win32 -DCMAKE_BUILD_TYPE=Debug
+cmake ../../CMakeLists.txt -B../../generated/GUI -G "Visual Studio 18 2026" -A x64 -DCMAKE_BUILD_TYPE=Release -DBUILD_USE_STATIC_RUNTIME=ON
 @echo off
 
 :BUILDING
