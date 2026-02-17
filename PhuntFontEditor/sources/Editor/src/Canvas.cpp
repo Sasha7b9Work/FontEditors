@@ -255,7 +255,7 @@ void Canvas::TuneScrollBar()
 
 void Canvas::Rebuild()
 {
-    SettingsFont settings = ImportSystemFontDialog::GetSettingsFont();
+    SettingsFont &settings = ImportSystemFontDialog::GetSettingsFont();
 
     font.CreateNew(settings);
 

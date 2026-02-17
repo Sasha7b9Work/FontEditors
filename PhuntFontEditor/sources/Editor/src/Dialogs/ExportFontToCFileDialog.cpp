@@ -88,7 +88,7 @@ void ExportFontToCFileDialog::OnButtonExport(wxCommandEvent &) //-V2506
 
 void ExportFontToCFileDialog::WriteFileXML(const wxString &nameFileFont)
 {
-    SettingsFont set = ImportSystemFontDialog::GetSettingsFont();
+    SettingsFont &set = ImportSystemFontDialog::GetSettingsFont();
 
     wxString nameFile = nameFileFont;
     nameFile[nameFile.size() - 1] = 'l';

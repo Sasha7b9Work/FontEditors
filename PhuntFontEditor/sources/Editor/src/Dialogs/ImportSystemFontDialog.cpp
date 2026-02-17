@@ -15,7 +15,7 @@ enum
 };
 
 
-SettingsFont *ImportSystemFontDialog::settings;
+SettingsFont *ImportSystemFontDialog::settings = nullptr;
 
 SettingsFont::SettingsFont(int w, int h, int off_x, int off_y) :
     width(w), height(h), offsetX(off_x), offsetY(off_y),
@@ -38,7 +38,10 @@ ImportSystemFontDialog::ImportSystemFontDialog(const wxString &title) : wxDialog
 #define SPACER 10
 #define FULL_ALIGN wxALIGN_CENTER | wxALL
 
-    settings = new SettingsFont();
+    if (settings == nullptr)
+    {
+        settings = new SettingsFont();
+    }
 
     wxButton *btnApply = new wxButton(this, ID_BUTTON_APPLY, wxT("Применить"), wxDefaultPosition, BUTTON_SIZE); //-V2511
     Connect(ID_BUTTON_APPLY, wxEVT_BUTTON, wxCommandEventHandler(ImportSystemFontDialog::OnButtonApply));
@@ -112,8 +115,13 @@ void ImportSystemFontDialog::OnButtonClose(wxCommandEvent &)
 }
 
 
-SettingsFont ImportSystemFontDialog::GetSettingsFont()
+SettingsFont &ImportSystemFontDialog::GetSettingsFont()
 {
+    if (settings == nullptr)
+    {
+        settings = new SettingsFont();
+    }
+
     return *settings;
 }
 
