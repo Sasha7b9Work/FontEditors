@@ -46,6 +46,9 @@ enum
 wxIMPLEMENT_APP_NO_MAIN(Application); //-V2511
 
 
+Frame *Frame::self = nullptr;
+
+
 int main(int argc, char **argv)
 {
     setlocale(LC_ALL, "Russian");
@@ -79,6 +82,8 @@ bool Application::OnInit() //-V2506
 Frame::Frame(const wxString &title)
     : wxFrame(NULL, wxID_ANY, title)
 {
+    self = this;
+
     SetIcon(wxICON(sample));
 
     CreateMenu();
@@ -89,19 +94,19 @@ Frame::Frame(const wxString &title)
 
     SetSizeAndPosition();
 
-    Bind(wxEVT_MENU,     &Frame::OnQuit,                     this, MENU_FILE_QUIT);
-    Bind(wxEVT_MENU,     &Frame::OnImportDescriptionFromXML, this, FILE_IMPORT_DESCRIPTION_FROM_XML);
-    Bind(wxEVT_MENU,     &Frame::OnImportSystemFont,         this, FILE_IMPORT_SYSTEM_FONT);
-    Bind(wxEVT_MENU,     &Frame::OnExportFontToC,            this, FILE_EXPORT_TO_C);
-    Bind(wxEVT_MENU,     &Frame::OnUndo,                     this, UNDO);
-    Bind(wxEVT_MENU,     &Frame::OnRedo,                     this, REDO);
-    Bind(wxEVT_SIZE,     &Frame::OnResize,                   this);
-    Bind(wxEVT_PAINT,    &Frame::OnRepaint,                  this);
-    Bind(wxEVT_KEY_DOWN, &Frame::OnKeyDown,                  this);
-    Bind(wxEVT_MENU,     &Frame::OnZoomDown,                 this, TOOL_SCALE_DOWN);
-    Bind(wxEVT_MENU,     &Frame::OnZoomUp,                   this, TOOL_SCALE_UP);
-    Bind(wxEVT_MENU,     &Frame::OnClearBadSymbols,          this, TOOL_CLEAR_BAD_SYMBOLS);
-    Bind(wxEVT_MENU,     &Frame::OnSelectSymbols,            this, TOOL_SELECT_SYMBOLS);
+    Bind(wxEVT_MENU,       &Frame::OnQuit,                     this, MENU_FILE_QUIT);
+    Bind(wxEVT_MENU,       &Frame::OnImportDescriptionFromXML, this, FILE_IMPORT_DESCRIPTION_FROM_XML);
+    Bind(wxEVT_MENU,       &Frame::OnImportSystemFont,         this, FILE_IMPORT_SYSTEM_FONT);
+    Bind(wxEVT_MENU,       &Frame::OnExportFontToC,            this, FILE_EXPORT_TO_C);
+    Bind(wxEVT_MENU,       &Frame::OnUndo,                     this, UNDO);
+    Bind(wxEVT_MENU,       &Frame::OnRedo,                     this, REDO);
+    Bind(wxEVT_SIZE,       &Frame::OnResize,                   this);
+    Bind(wxEVT_PAINT,      &Frame::OnRepaint,                  this);
+    Bind(wxEVT_KEY_DOWN,   &Frame::OnKeyDown,                  this);
+    Bind(wxEVT_MENU,       &Frame::OnZoomDown,                 this, TOOL_SCALE_DOWN);
+    Bind(wxEVT_MENU,       &Frame::OnZoomUp,                   this, TOOL_SCALE_UP);
+    Bind(wxEVT_MENU,       &Frame::OnClearBadSymbols,          this, TOOL_CLEAR_BAD_SYMBOLS);
+    Bind(wxEVT_MENU,       &Frame::OnSelectSymbols,            this, TOOL_SELECT_SYMBOLS);
 
     Show(true);
 

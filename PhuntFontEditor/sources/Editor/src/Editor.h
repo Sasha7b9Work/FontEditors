@@ -18,9 +18,14 @@ public:
     Frame(const wxString &title);
     ~Frame();
 
+    static Frame *self;
+
     void OnQuit(wxCommandEvent &);
     void OnResize(wxSizeEvent &);
     void OnRepaint(wxPaintEvent &);
+    void OnZoomUp(wxCommandEvent &);
+    void OnZoomDown(wxCommandEvent &);
+
 
 private:
     void SetSizeAndPosition();
@@ -42,19 +47,13 @@ private:
     // Ёкспортировать шрифт в си-файл
     void OnExportFontToC(wxCommandEvent &);
 
-	void OnUndo(wxCommandEvent &);
-
-	void OnRedo(wxCommandEvent &);
-
+    void OnUndo(wxCommandEvent &);
+    void OnRedo(wxCommandEvent &);
     void OnKeyDown(wxKeyEvent &);
-
-    void OnZoomUp(wxCommandEvent &);
-
-    void OnZoomDown(wxCommandEvent &);
 
     // ќчистить символы, не вход€щие в основной набор
     void OnClearBadSymbols(wxCommandEvent &);
-    
+
     // »нструмент выбора сохран€емых символов
     void OnSelectSymbols(wxCommandEvent &);
 };

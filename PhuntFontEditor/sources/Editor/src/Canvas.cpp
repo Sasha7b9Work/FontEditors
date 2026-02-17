@@ -3,6 +3,7 @@
 #include "Dialogs/ImportSystemFontDialog.h"
 #include "Font/BitmapFont.h"
 #include "Font/FontImporter.h"
+#include "Editor.h"
 #include <cstdlib>
 
 
@@ -28,6 +29,8 @@ Canvas::Canvas(wxWindow *parent) : wxPanel(parent, wxID_ANY)
     Bind(wxEVT_RIGHT_DOWN,   &Canvas::OnMouseRightDown, this);
     Bind(wxEVT_RIGHT_UP,     &Canvas::OnMouseRightUp,   this);
     Bind(wxEVT_LEAVE_WINDOW, &Canvas::OnMouseLeave,     this);
+    Bind(wxEVT_MOUSEWHEEL,   &Canvas::OnMouseWheel,     this);
+
 
     TuneScrollBar();
 
@@ -235,6 +238,25 @@ void Canvas::OnMouseLeave(wxMouseEvent &)
     mouseY = mouseX;
     Refresh();
 }
+
+
+void Canvas::OnMouseWheel(wxMouseEvent &event)
+{
+    if (event.ControlDown())
+    {
+        wxCommandEvent cmd_event;
+
+        if (event.GetWheelRotation() > 0)
+        {
+            Frame::self->OnZoomUp(cmd_event);
+        }
+        else
+        {
+            Frame::self->OnZoomDown(cmd_event);
+        }
+    }
+}
+
 
 
 wxSize Canvas::CurrentSize()

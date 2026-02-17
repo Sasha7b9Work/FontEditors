@@ -34,16 +34,12 @@ public:
 private:
 
     void OnMouseMove(wxMouseEvent &);
-
     void OnMouseLeave(wxMouseEvent &);
-
     void OnMouseLeftDown(wxMouseEvent &);
-
     void OnMouseLeftUp(wxMouseEvent &);
-
     void OnMouseRightDown(wxMouseEvent &);
-
     void OnMouseRightUp(wxMouseEvent &);
+    void OnMouseWheel(wxMouseEvent &);
 
     void TuneScrollBar();
 
