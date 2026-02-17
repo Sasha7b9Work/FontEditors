@@ -3,6 +3,7 @@
 
 struct SettingsFont
 {
+    SettingsFont(int = 16, int = 16, int = 0, int = 0);
     int width;      // Ширина знкоместа
     int height;     // Высота знакоместа
     int offsetX;    // Смещение шрифта по горизонтали
@@ -36,5 +37,5 @@ private:
     // Установить все полагающиеся надписи в соотвествии с текущими настройками
     static void TuneTexts();
 
-    static SettingsFont settings;       // Настройки шрифта
+    static SettingsFont *settings;       // Настройки шрифта
 };
